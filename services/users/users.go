@@ -6,16 +6,16 @@ import (
 	"github.com/darmanuals/clean-arch/services"
 )
 
-type UserServiceImpl struct {
+type UserService struct {
 	users DAL.UserDAO
 }
 
-func NewUserService(userDAO DAL.UserDAO) services.UserService {
-	return UserServiceImpl{
+func NewUserService(userDAO DAL.UserDAO) services.User {
+	return UserService{
 		users: userDAO,
 	}
 }
 
-func (s UserServiceImpl) Retrieve(id int) *models.User {
+func (s UserService) Retrieve(id int) *models.User {
 	return s.users.Get(id)
 }
