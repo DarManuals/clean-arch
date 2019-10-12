@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/darmanuals/clean-arch/handlers"
+	"github.com/DarManuals/clean-arch/handlers"
+
 	"github.com/gorilla/mux"
 )
 

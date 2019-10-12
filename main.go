@@ -1,17 +1,18 @@
 package main
 
 import (
-	"github.com/darmanuals/clean-arch/DAL/mocked"
-	userH "github.com/darmanuals/clean-arch/handlers/users"
-	userS "github.com/darmanuals/clean-arch/services/users"
 	"net/http"
+
+	"github.com/DarManuals/clean-arch/handlers"
+	"github.com/DarManuals/clean-arch/repository"
+	"github.com/DarManuals/clean-arch/services"
 )
 
 func main() {
-	var userDAO = mocked.NewUserStorage()
-	var userService = userS.NewUserService(userDAO)
-	var usersHandler = userH.NewUserHandler(userService)
+	var userRepo = repository.NewUserStorage()
+	var userService = services.NewUserService(userRepo)
+	var usersHandler = handlers.NewUserHandler(userService)
 
 	router := NewRouter(usersHandler)
-	http.ListenAndServe(":12345", router)
+	_ = http.ListenAndServe(":12345", router)
 }
