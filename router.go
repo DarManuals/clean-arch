@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/DarManuals/clean-arch/handlers"
-
 	"github.com/gorilla/mux"
+
+	"github.com/DarManuals/clean-arch/handlers"
 )
 
 func NewRouter(
