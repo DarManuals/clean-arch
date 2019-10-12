@@ -10,6 +10,6 @@ func NewRouter(
 	userHandler handlers.User,
 ) *mux.Router {
 	r := mux.NewRouter()
-	r.HandleFunc("/users", userHandler.Get)
+	r.HandleFunc("/user/{id}", userHandler.Get)
 	return r
 }

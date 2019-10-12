@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"errors"
+
 	"github.com/DarManuals/clean-arch/models"
 )
 
@@ -11,6 +13,10 @@ func NewUserStorage() User {
 }
 
 func (user) Get(id int) (models.User, error) {
+	if id == 0 {
+		return models.User{}, errors.New("mock err")
+	}
+
 	return models.User{
 		ID:   id,
 		Name: "Test",
