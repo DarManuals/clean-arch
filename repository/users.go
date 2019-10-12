@@ -10,9 +10,9 @@ func NewUserStorage() User {
 	return user{}
 }
 
-func (user) Get(id int) models.User {
+func (user) Get(id int) (models.User, error) {
 	return models.User{
 		ID:   id,
 		Name: "Test",
-	}
+	}, nil
 }

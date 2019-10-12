@@ -15,6 +15,6 @@ func NewUserService(userDAO repository.User) User {
 	}
 }
 
-func (s UserService) Retrieve(id int) models.User {
+func (s UserService) Retrieve(id int) (models.User, error) {
 	return s.users.Get(id)
 }
