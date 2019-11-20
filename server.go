@@ -4,6 +4,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/DarManuals/clean-arch/config"
+
 	"github.com/gorilla/mux"
 )
 
@@ -17,6 +19,6 @@ func (s Server) Run() {
 	log.Fatalf("Server failed to start: %v\n", http.ListenAndServe(s.address, s.router))
 }
 
-func NewServer(address string, router *mux.Router) Server {
-	return Server{address: address, router: router}
+func NewServer(cfg config.Config, router *mux.Router) Server {
+	return Server{address: cfg.ServicePort, router: router}
 }

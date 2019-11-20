@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/DarManuals/clean-arch/config"
 )
 
 // simple logger example
@@ -12,9 +14,9 @@ type Logger interface {
 	Error(msg string, err error)
 }
 
-func New(prefix string) Logger {
+func New(cfg config.Config) Logger {
 	return logger{
-		prefix: prefix,
+		prefix: cfg.ServiceName,
 		l:      log.New(os.Stdout, "", log.LstdFlags),
 	}
 }
