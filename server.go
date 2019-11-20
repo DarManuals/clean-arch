@@ -20,5 +20,5 @@ func (s Server) Run() {
 }
 
 func NewServer(cfg config.Config, router *mux.Router) Server {
-	return Server{address: cfg.ServicePort, router: router}
+	return Server{address: cfg.ServiceAddress, router: router}
 }

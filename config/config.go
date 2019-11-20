@@ -1,19 +1,21 @@
 package config
 
+import "flag"
+
 const (
-	ServiceName = `UserService`
-	defaultPort = `:12345`
+	serviceName    = `UserService`
+	defaultAddress = `localhost:12345`
 )
 
 type Config struct {
-	ServiceName string
-	ServicePort string
+	ServiceName    string
+	ServiceAddress string
 }
 
 func New() (cfg Config) {
+	cfg.ServiceName = serviceName
 
-	cfg.ServiceName = ServiceName
-	cfg.ServicePort = defaultPort
-
+	flag.StringVar(&cfg.ServiceAddress, "addr", defaultAddress, "Usage [host:port]")
+	flag.Parse()
 	return cfg
 }
