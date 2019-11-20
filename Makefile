@@ -1,7 +1,7 @@
 # simple example
 
 APP_NAME="UserService"
-COVERAGE_FILE=""coverage.out
+COVERAGE_FILE="coverage.out"
 
 build:
 	go build -o $(APP_NAME) *.go
